@@ -145,6 +145,5 @@ Representative transcript IDs are intentionally used instead of exhaustive listi
 
 Team: The Outliers
 (Sk Aziz Jalaluddin,Shubham Acharya,Soham Swain)
-The system is robust, transparent, and judge-defensible
 
 👥 Team
