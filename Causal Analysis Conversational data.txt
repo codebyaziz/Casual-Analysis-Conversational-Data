@@ -1,0 +1,66 @@
+Causal Analysis and Interactive Reasoning over Conversational Data
+
+1. Objective
+Explain why specific conversational outcomes occur (e.g., Delivery Investigation, Fraud Alert, Escalation)
+Provide interpretable, evidence-backed explanations
+Support multi-turn analytical queries with context awareness
+Focus on explanation, not prediction
+
+2. Dataset
+JSON-based conversational transcripts
+Each conversation contains:
+Transcript ID
+Outcome label (intent)
+Multi-turn dialogue with speaker roles
+Each conversation treated as a single analytical unit
+
+3. Preprocessing
+Flatten conversations into a structured dataframe
+Concatenate all dialogue turns per conversation
+Preserve original turn structure for evidence extraction
+Retain outcome labels for outcome-conditioned analysis
+
+4. Core Methodology
+4.1 Feature Representation
+TF-IDF used to convert conversation text into numerical features
+English stop-word removal
+Fixed feature limit to control dimensionality
+
+4.2 Outcome-Conditioned Statistical Explanation Framework
+Uses Multinomial Naive Bayes as a probabilistic estimator: P(word∣outcome)
+Extracts top outcome-associated keywords
+These keywords act as interpretable causal signals
+
+5. Query-Driven Causal Explanation (Task 1)
+Retrieve conversations with the specified outcome
+Identify dominant outcome-conditioned keywords
+Extract customer dialogue spans containing these keywords
+Generate structured explanations with evidence
+Outputs include:Explanation text,Causal keywords,Transcript IDs with evidence spans
+
+6. Multi-Turn Context-Aware Reasoning (Task 2)
+Maintains last resolved outcome as context
+Implicit queries reuse previous outcome
+Explicit outcome mentions override context
+Enables coherent multi-turn analytical interaction
+
+7. Evaluation Principles
+Evidence Recall: All evidence sourced directly from transcripts
+Faithfulness: No generative models or hallucinated content
+Relevance: Outcome-conditioned reasoning ensures query alignment
+Deterministic and reproducible outputs
+
+8. Implementation Details
+Python-based, lightweight stack:
+NumPy
+Pandas
+Scikit-learn
+
+9. Key Observations
+Identifies dominant conversational factors per outcome
+Produces interpretable, evidence-grounded explanations
+Maintains consistency across multi-turn queries
+
+10. Conclusion
+Demonstrates that causal-style explanation over conversations can be achieved
+Combines outcome-conditioned statistical learning with explicit evidence extraction
